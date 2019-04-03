@@ -34,7 +34,7 @@ import React, { Component } from 'react';
           <div className="PlusMinusInput">
             <button type="button" className="btn btn-success" onClick={() => this.incrementCount()}>+</button>
             <h2>{this.state.count}</h2>
-            <button type="button" class="btn btn-danger" onClick={() => this.decrementCount()}>-</button>
+            <button type="button" className="btn btn-danger" onClick={() => this.decrementCount()}>-</button>
           </div>
         );
       }

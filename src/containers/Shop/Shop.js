@@ -88,7 +88,7 @@ class Shop extends Component {
             <div>
                 <section className="Productos">
                     <h1 onClick={this.prueba}>Lista de productos</h1>
-                    <div class="card-group">
+                    <div className="card-group">
                       <ListaProductos addProduct={this.addProduct} removeProduct={this.removeProduct} productos={this.state.productos} carrito={this.state.carrito} />
                     </div>
                 </section>
