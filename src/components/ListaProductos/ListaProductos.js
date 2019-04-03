@@ -8,7 +8,8 @@ const ListaProductos = ( props ) => props.productos.map ((producto, index) => {
         removeProduct = {props.removeProduct}
         cantidad = {props.carrito}
         nombre = {producto.nombre}
-        precio = {producto.precio} 
+        precio = {producto.precio}
+        descripcion = {producto.descripcion} 
         url_imagen = {producto.url_imagen}
         idb = {producto.idb}
         key = {index} />
