@@ -4,9 +4,13 @@ import Producto from './Producto/Producto';
 const ListaProductos = ( props ) => props.productos.map ((producto, index) => {
    
     return <Producto 
-        clicked = {() => props.clicked(producto.idb)} 
-        nombre = {producto.nombre} 
+        addProduct = {props.addProduct}
+        removeProduct = {props.removeProduct}
+        cantidad = {props.carrito}
+        nombre = {producto.nombre}
+        precio = {producto.precio} 
         url_imagen = {producto.url_imagen}
+        idb = {producto.idb}
         key = {index} />
 });
 

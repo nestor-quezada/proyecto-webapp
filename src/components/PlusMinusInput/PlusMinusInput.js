@@ -13,7 +13,9 @@ import React, { Component } from 'react';
         this.setState({
           count: this.state.count + 1
         });
-      }
+        
+        this.props.addProduct(this.props.idb, this.state.count + 1);
+    }
 
     decrementCount (){
         if (this.state.count > 0) {
@@ -21,7 +23,7 @@ import React, { Component } from 'react';
                 count: this.state.count - 1
             });
         } 
-        
+        this.props.removeProduct(this.props.idb, this.state.count);
     }
 
     render (){
