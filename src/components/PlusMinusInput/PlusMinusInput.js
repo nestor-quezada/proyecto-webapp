@@ -21,9 +21,12 @@ import React, { Component } from 'react';
         if (this.state.count > 0) {
             this.setState({
                 count: this.state.count - 1
+            }, 
+            function(){
+              this.props.removeProduct(this.props.idb, this.state.count) 
             });
         } 
-        this.props.removeProduct(this.props.idb, this.state.count);
+        ;
     }
 
     render (){

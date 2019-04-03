@@ -56,7 +56,9 @@ class Shop extends Component {
            
 
     }
-    
+    prueba = () => {
+      console.log(this.state.carrito)
+    }
     removeProduct = (itemId, count) => {
       // Actualizamos el estado del carrito
       let updatedCarrito = [...this.state.carrito];
@@ -66,7 +68,7 @@ class Shop extends Component {
         // Si el producto ya existe solo se actuliza su cantidad
         let product = foundedProduct;
         product.count = count;
-
+        console.log(count)
         if(product.count == 0){
           updatedCarrito.splice(foundedProduct, 1); 
         }
@@ -85,7 +87,7 @@ class Shop extends Component {
         return (
             <div>
                 <section className="Productos">
-                    <h1>Lista de productos</h1>
+                    <h1 onClick={this.prueba}>Lista de productos</h1>
                     <ListaProductos addProduct={this.addProduct} removeProduct={this.removeProduct} productos={this.state.productos} carrito={this.state.carrito} />
                 </section>
             </div>
