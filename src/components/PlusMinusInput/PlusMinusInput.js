@@ -31,10 +31,10 @@ import React, { Component } from 'react';
 
     render (){
         return (
-          <div className="PlusMinusInput">
-            <button type="button" className="btn btn-success" onClick={() => this.incrementCount()}>+</button>
+          <div className="PlusMinusInput row">
+            <button type="button" className="btn font-weight-bold" onClick={() => this.incrementCount()}><medium>+</medium></button>
             <h2>{this.state.count}</h2>
-            <button type="button" className="btn btn-danger" onClick={() => this.decrementCount()}>-</button>
+            <button type="button" className="btn font-weight-bold" onClick={() => this.decrementCount()}>-</button>
           </div>
         );
       }
