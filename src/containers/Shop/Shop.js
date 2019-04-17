@@ -11,14 +11,21 @@ import { Route, Link } from 'react-router-dom';
 
 class Shop extends Component {
 
-    
+    state = {
+        prueba: 0
+    }
+
+    setProductos = () => {
+
+        
+    }
 
     render() {
 
         return (
             <div className="container">
                 <Route path="/" component={Breadcumbs} />
-                <Route path="/" exact component={Home} />
+                <Route path="/" exact render={(props) => <Home {...props} estado={this.state} />} />
                 <Route path="/lista-pedidos" exact component={ListaPedidos} />
                 <Route path="/realizar-pedido" exact component={RealizarPedido} />
                 <Route path="/datos-cliente" exact component={DatosCliente} />

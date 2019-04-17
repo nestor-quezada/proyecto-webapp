@@ -19,8 +19,8 @@ class Breadcumbs extends Component {
             return (
                 <Link to="/">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item active" aria-current="page">Home</li>
                         </ol>
                     </nav>
                 </Link>)
@@ -30,9 +30,9 @@ class Breadcumbs extends Component {
 
             return (
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li class="breadcrumb-item active" aria-current="page">Realizar pedido</li>
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">Realizar pedido</li>
                     </ol>
                 </nav>)
 
@@ -40,10 +40,10 @@ class Breadcumbs extends Component {
 
             return (
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                        <li class="breadcrumb-item"><Link to="/realizar-pedido">Realizar pedido</Link></li>
-                        <li class="breadcrumb-item active" aria-current="page">Datos cliente</li>
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item"><Link to="/realizar-pedido">Realizar pedido</Link></li>
+                        <li className="breadcrumb-item active" aria-current="page">Datos cliente</li>
                     </ol>
                 </nav>)
 

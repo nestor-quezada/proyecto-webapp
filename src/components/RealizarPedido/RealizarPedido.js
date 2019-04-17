@@ -49,14 +49,14 @@ class RealizarPedido extends Component {
             <div className="RealizarPedido">
                 
                 <h1>Confirmar pedido</h1>
-                <div class="list-group">
+                <div className="list-group">
                     {listaProductos}
-                    <a  class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Total</h5>
+                    <a  className="list-group-item list-group-item-action">
+                        <div className="d-flex w-100 justify-content-between">
+                            <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> {this.state.totales.cantidad}</span> </h5>
                             
                             <medium className="font-weight-bold">{this.state.totales.precio}€</medium>
-                            <span class="badge badge-light">{this.state.totales.cantidad}</span>
+                            
                         </div>
                         
                     </a>
@@ -64,7 +64,7 @@ class RealizarPedido extends Component {
                 
                 <div className="container">
                     
-                        <Link to="/"><button type="button" class="btn btn-primary mr-1 mt-3">Volver</button></Link>
+                        <Link to="/"><button type="button" className="btn btn-primary mr-1 mt-3 mb-5">Volver</button></Link>
                     
                     
                         <Link to={{
@@ -72,7 +72,7 @@ class RealizarPedido extends Component {
                                         hash: '#submit',
                                         search: '?quick-submit=true'
                             
-                                    }}><button type="button" class="btn btn-primary mt-3">Continuar</button></Link>
+                                    }}><button type="button" className="btn btn-primary mt-3 mb-5">Continuar</button></Link>
                     
                 
                 </div>

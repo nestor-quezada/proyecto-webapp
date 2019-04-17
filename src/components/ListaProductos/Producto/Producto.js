@@ -38,7 +38,7 @@ class Producto extends Component {
 
             
 
-            <li class="media">
+            <li className="media">
                 
                 
                 <img className="mr-3" src={this.props.url_imagen} width="150px" alt="Generic placeholder image"></img>
@@ -54,7 +54,7 @@ class Producto extends Component {
                     <p className="card-text"><small className="text-muted"> Precio:{this.props.precio}€</small></p>
                         Total item: {foundedProduct ? foundedProduct.count * this.props.precio: 0 }€
                 </div>
-                <div className="col-sm">
+                <div className="col-sm-2">
                     <PlusMinusInput addProduct={this.props.addProduct}  removeProduct={this.props.removeProduct} idb={this.props.idb}/>
                 </div>
             </li>

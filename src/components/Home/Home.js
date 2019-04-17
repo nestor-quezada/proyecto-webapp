@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import axios from '../../axios';
 import ListaProductos from '../../components/ListaProductos/ListaProductos';
-import RealizarPedido from '../../components/RealizarPedido/RealizarPedido';
 import { Route, Link } from 'react-router-dom';
 
 
@@ -13,8 +12,11 @@ class Home extends Component {
         carrito : []
     }
 
+
+
     // Aqui se deben realizar las peticiones AJAX
     componentDidMount(){
+      console.log(this.props);
         axios.get('/productos.json'). 
             then(response => {
                 // Split de los datos recibidos y actualizacion del estado
@@ -93,7 +95,7 @@ class Home extends Component {
   }
 
     render() {
-      let k = this.state;
+      
         return (
             <div>
                 <section className="Productos">
@@ -112,7 +114,7 @@ class Home extends Component {
                                   search: '?quick-submit=true',
                                   state: this.state.carrito
                               }}>
-                    <button type="button" class="btn btn-primary mb-5">Realizar pedido</button>
+                    <button type="button" className="btn btn-primary mb-5">Realizar pedido</button>
                   </Link>
                 
                 </div>

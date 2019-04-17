@@ -54,37 +54,37 @@ class DatosCliente extends Component {
 
                 <div>
                     <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
                                 <label for="inputEmail">Email</label>
                                 <input type="email" name="email" value={this.state.email} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputEmail" placeholder="whatever@loquesea.com"/>
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div className="form-group col-md-6">
                                 <label for="nombre">Nombre</label>
                                 <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputEmail" placeholder="E.g. Fulgencio"/>
                             </div>
                             
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="inputAddress">Dirección</label>
                             <input type="text" name="direccion" value={this.state.direccion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputAddress" placeholder="C/Gran vía 2 Avinguda de la Granvia, " />
                         </div>
-                        <div class="form-row">
+                        <div className="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputCity">Población</label>
                                 <input type="text" name="poblacion" value={this.state.poblacion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputCity" placeholder="L'Hospitalet de Llobregat, Barcelona"/>
                             </div>
                             
-                            <div class="form-group col-md-2">
+                            <div className="form-group col-md-2">
                                 <label for="codigoPostal">Códido postal</label>
                                 <input type="text" name="codigoPostal" value={this.state.codigoPostal} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="codigoPostal"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck" />
-                                <label class="form-check-label" for="gridCheck">
+                        <div className="form-group">
+                            <div className="form-check">
+                                <input className="form-check-input" type="checkbox" id="gridCheck" />
+                                <label className="form-check-label" for="gridCheck">
                                     Consiento que mis datos queden registrados para futuras compras
                                 </label>
                             </div>
@@ -97,7 +97,7 @@ class DatosCliente extends Component {
 
 
                 <Link to="/" className="btn btn-primary mr-1">Volver</Link>
-                <button type="button" class="btn btn-primary" onClick={this.handleFormSubmit}>Realizar Pedido</button>
+                <button type="button" className="btn btn-primary" onClick={this.handleFormSubmit}>Realizar Pedido</button>
                 
             </div>
 
