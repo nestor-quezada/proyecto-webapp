@@ -3,16 +3,22 @@ import './Producto.css';
 import  PlusMinusInput from '../../PlusMinusInput/PlusMinusInput'
 
 class Producto extends Component {
-
+    
     constructor(props){
         super(props);
+        console.log(props.cantidad);
+       
+        
     }
+
+    
         
     render (){
-
+        
         let miniaturas = [];
         let foundedProduct = this.props.cantidad.find(item => item.itemId === this.props.idb);
         
+        console.log(foundedProduct);
         const style = {
             
             padding: "0px !important",
@@ -36,8 +42,6 @@ class Producto extends Component {
         
         return (
 
-            
-
             <li className="media">
                 
                 
@@ -55,7 +59,7 @@ class Producto extends Component {
                         Total item: {foundedProduct ? foundedProduct.count * this.props.precio: 0 }€
                 </div>
                 <div className="col-sm-2">
-                    <PlusMinusInput addProduct={this.props.addProduct}  removeProduct={this.props.removeProduct} idb={this.props.idb}/>
+                    <PlusMinusInput addProduct={this.props.addProduct} removeProduct={this.props.removeProduct} idb={this.props.idb} cantidad={foundedProduct ? foundedProduct.count : 0 }/>
                 </div>
             </li>
 

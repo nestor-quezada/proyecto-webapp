@@ -11,23 +11,28 @@ import { Route, Link } from 'react-router-dom';
 
 class Shop extends Component {
 
+    constructor(props){
+        super(props);
+        console.log("construyendo otra vez");
+    }
+
     state = {
-        prueba: 0
+        carrito: []
     }
 
-    setProductos = () => {
+    setCarrito = (carrito) => {
+        this.setState({carrito: carrito});
 
-        
     }
-
+     
     render() {
-
+        console.log(this.state.carrito);
         return (
             <div className="container">
                 <Route path="/" component={Breadcumbs} />
-                <Route path="/" exact render={(props) => <Home {...props} estado={this.state} />} />
+                <Route path="/" exact render={(props) => <Home {...props} setCarrito={this.setCarrito} carrito={this.state.carrito} />} />
                 <Route path="/lista-pedidos" exact component={ListaPedidos} />
-                <Route path="/realizar-pedido" exact component={RealizarPedido} />
+                <Route path="/realizar-pedido" exact render={(props) => <RealizarPedido {...props} carrito={this.state.carrito} />} />
                 <Route path="/datos-cliente" exact component={DatosCliente} />
             </div>
 

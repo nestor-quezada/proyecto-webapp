@@ -3,6 +3,10 @@ import React, { Component } from 'react';
   class PlusMinusInput extends Component {
     constructor (props){
         super(props);
+        if(props.cantidad){
+          console.log(props.cantidad)
+          this.state.count = props.cantidad;
+        }
     }
 
     state =  {

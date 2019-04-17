@@ -7,9 +7,18 @@ import { Route, Link } from 'react-router-dom';
 
 class Home extends Component {
 
+    constructor(props){
+      super(props);
+      if(props.carrito){
+        this.state.carrito = props.carrito;
+        console.log("set de la props carrito home")
+      }
+      console.log(props.carrito)
+    }
+
     state = {
-        productos : [],
-        carrito : []
+        productos : []
+        
     }
 
 
@@ -64,13 +73,11 @@ class Home extends Component {
             carrito : updatedCarrito
           });
         }
-           
+        
+        this.props.setCarrito(updatedCarrito);
 
     }
-    prueba = () => {
-      //
-      //console.log(this.state.carrito)
-    }
+   
     removeProduct = (itemId, count) => {
       // Actualizamos el estado del carrito
       let updatedCarrito = [...this.state.carrito];
@@ -90,16 +97,16 @@ class Home extends Component {
         });
       }
 
-      
+      this.props.setCarrito(updatedCarrito);
 
   }
 
     render() {
-      
+      console.log(this.state.carrito)
         return (
             <div>
                 <section className="Productos">
-                    <h1 onClick={this.prueba}>Lista de productos</h1>
+                    <h1 >Lista de productos</h1>
                     <div className="list-unstyled">
                       <ListaProductos addProduct={this.addProduct} removeProduct={this.removeProduct} productos={this.state.productos} carrito={this.state.carrito} />
                       

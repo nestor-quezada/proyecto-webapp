@@ -68,7 +68,7 @@ class DatosCliente extends Component {
                         </div>
                         <div className="form-group">
                             <label for="inputAddress">Dirección</label>
-                            <input type="text" name="direccion" value={this.state.direccion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputAddress" placeholder="C/Gran vía 2 Avinguda de la Granvia, " />
+                            <input type="text" name="direccion" value={this.state.direccion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputAddress" placeholder="C/Gran vía 2 Avinguda de la Granvia " />
                         </div>
                         <div className="form-row">
                             <div class="form-group col-md-6">
@@ -96,7 +96,7 @@ class DatosCliente extends Component {
                 </div>
 
 
-                <Link to="/" className="btn btn-primary mr-1">Volver</Link>
+                <Link to="/realizar-pedido" className="btn btn-primary mr-1">Volver</Link>
                 <button type="button" className="btn btn-primary" onClick={this.handleFormSubmit}>Realizar Pedido</button>
                 
             </div>

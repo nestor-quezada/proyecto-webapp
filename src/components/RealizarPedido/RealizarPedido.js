@@ -8,7 +8,10 @@ class RealizarPedido extends Component {
 
     constructor(props){
         super(props);
-        
+        console.log(this.props.carrito);
+        if(!this.props.location.state){
+            this.props.location.state = this.props.carrito;
+        }
         this.state.totales = this.getTotal();
         
     }
