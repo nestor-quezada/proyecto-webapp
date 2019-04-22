@@ -18,12 +18,28 @@ class Shop extends Component {
     }
 
     state = {
-        carrito: []
+        carrito: [],
+        totalPrecio: 0,
+        totalCantidad: 0
     }
 
     setCarrito = (carrito) => {
-        this.setState({carrito: carrito});
+        this.setState({carrito: carrito}, () => {this.setTotal()});
+    }
 
+    setTotal = () => {
+        
+        let precioTotal = 0;
+        let unidadadesTotal = 0;
+       
+        for(let i=0; i < this.state.carrito.length ; i++)
+        {
+            precioTotal += parseFloat(this.state.carrito[i].precio) * this.state.carrito[i].count;
+            unidadadesTotal += this.state.carrito[i].count;
+        }
+        
+        this.setState({totalPrecio: precioTotal, totalCantidad: unidadadesTotal});
+        
     }
      
     render() {
@@ -45,12 +61,8 @@ class Shop extends Component {
                             }}>Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                            <Link className="nav-link" to={{
-                                pathname: '/lista-pedidos',
-                                hash: '#submit',
-                                search: '?quick-submit=true',
-                                state: this.state.carrito
-                            }}>Pedidos</Link>
+                            <a className="nav-link" href="/lista-pedidos"
+                            >Pedidos</a>
                             </li>
                             </ul>
                     </div>
@@ -58,9 +70,9 @@ class Shop extends Component {
                 <Route path="/" component={Breadcumbs} />
                 <Route path="/" exact render={(props) => <Home {...props} setCarrito={this.setCarrito} carrito={this.state.carrito} />} />
                 <Route path="/lista-pedidos" exact component={ListaPedidos} />
-                <Route path="/detalle-pedido" exact component={DetallePedido} />
-                <Route path="/realizar-pedido" exact render={(props) => <RealizarPedido {...props} carrito={this.state.carrito} />} />
-                <Route path="/datos-cliente" exact render={(props) => <DatosCliente {...props} carrito={this.state.carrito} />} />
+                <Route path="/detalle-pedido" exact render={(props) => <DetallePedido {...props} setCarrito={this.setCarrito}  />} />
+                <Route path="/realizar-pedido" exact render={(props) => <RealizarPedido {...props} estado={this.state} />} />
+                <Route path="/datos-cliente" exact render={(props) => <DatosCliente {...props} estado={this.state} />} />
                 <Route path="/pagina-agradecimiento" exact component={PaginaAgradecimiento} />
                 
                 

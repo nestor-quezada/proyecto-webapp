@@ -19,6 +19,7 @@ import React, { Component } from 'react';
         });
         
         this.props.addProduct(this.props.idb, this.state.count + 1);
+        
     }
 
     decrementCount (){

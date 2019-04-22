@@ -10,10 +10,7 @@ class Breadcumbs extends Component {
     }
         
     render (){
-        console.log(this.props.location.pathname)
         const pathname = this.props.location.pathname;
-        console.log(pathname.localeCompare("/"))
-        console.log(pathname.localeCompare("/realizar-pedido"))
         if(pathname.localeCompare("/") == 0){
 
             return (

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import axios from '../../axios';
 import ListaProductos from '../../components/ListaProductos/ListaProductos';
 import { Route, Link } from 'react-router-dom';
-
 
 class Home extends Component {
 
@@ -17,7 +15,6 @@ class Home extends Component {
 
   state = {
       productos : []
-     
   }
 
   // Aqui se deben realizar las peticiones AJAX
@@ -35,7 +32,6 @@ class Home extends Component {
               }
 
               this.setState({productos : productos});
-              
 
           });
   }
@@ -45,7 +41,6 @@ class Home extends Component {
     let updatedCarrito = [...this.state.carrito];
     
     let foundedProduct = updatedCarrito.find(item => item.itemId === itemId);
-    
     if(!foundedProduct){
       // En caso de que el producto no exista en el carrito se crea
       
@@ -59,7 +54,7 @@ class Home extends Component {
       updatedCarrito.push(newProduct);
       this.setState({
         carrito : updatedCarrito
-      });
+      }, () => { this.setState({ total: this.getTotal() })});
               
     } else {
       // Si el producto ya existe solo se actuliza su cantidad
@@ -67,13 +62,11 @@ class Home extends Component {
 
       this.setState({
         carrito : updatedCarrito
-      });
+      }, () => { this.setState({ total: this.getTotal() }) });
     }
-    
     this.props.setCarrito(updatedCarrito);
     
-    this.setState({total : this.getTotal()});
-
+    //this.setState({total : this.getTotal()});
 
   }
    

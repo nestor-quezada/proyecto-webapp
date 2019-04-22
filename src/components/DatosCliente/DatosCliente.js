@@ -27,7 +27,9 @@ class DatosCliente extends Component {
             email:this.state.email,
             direccion:this.state.direccion,
             codigoPostal:this.state.codigoPostal,
-            carrito:this.props.carrito,
+            carrito:this.props.estado.carrito,
+            precioTotal:this.props.estado.totalPrecio,
+            cantidadTotal:this.props.estado.totalCantidad,
             fecha: this.getFecha()
             
         }

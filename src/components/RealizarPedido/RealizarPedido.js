@@ -8,38 +8,11 @@ class RealizarPedido extends Component {
 
     constructor(props){
         super(props);
-        if(!this.props.location.state){
-            this.props.location.state = this.props.carrito;
-        }
-        this.state.totales = this.getTotal();
-        
     }
-
-    state = {
-        precioTotal:0,
-        totales: {}
-    }
-        
-    getTotal = () => {
-        
-        let precioTotalUpdated = 0;
-        let unidadadesTotalUpdated = 0;
-       
-        for(let i=0; i < this.props.location.state.length ; i++)
-        {
-            precioTotalUpdated += parseFloat(this.props.location.state[i].precio);
-            unidadadesTotalUpdated += this.props.location.state[i].count;
-        }
-        
-        
-        return {
-            precio: precioTotalUpdated, cantidad: unidadadesTotalUpdated
-        }
-    }
-
+  
     render (){
         
-        var listaProductos = this.props.location.state.map((item, index)=>{
+        var listaProductos = this.props.estado.carrito.map((item, index)=>{
            return <ProductoRealizarPedido cantidad={item.count} nombre={item.nombre}
            precio={item.precio} url_imagen={item.url_imagen}/>
         })
@@ -53,9 +26,9 @@ class RealizarPedido extends Component {
                     {listaProductos}
                     <a  className="list-group-item list-group-item-action">
                         <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> {this.state.totales.cantidad}</span> </h5>
+                            <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> {this.props.estado.totalCantidad}</span> </h5>
                             
-                            <medium className="font-weight-bold">{this.state.totales.precio}€</medium>
+                            <medium className="font-weight-bold">{this.props.estado.totalPrecio}€</medium>
                             
                         </div>
                         
@@ -76,13 +49,10 @@ class RealizarPedido extends Component {
                     
                 
                 </div>
-               
-           
+
 
             </div>
-            
-            
-            
+
 
         );
 

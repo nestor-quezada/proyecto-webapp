@@ -28,7 +28,6 @@ class ListaPedidos extends Component {
 
                 this.setState({clientes : clientes});
                 
-                console.log(this.state.clientes)
             });
     }
         

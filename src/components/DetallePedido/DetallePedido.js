@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import ProductoRealizarPedido from '../RealizarPedido/ProductoRealizarPedido/ProductoRealizarPedido';
+import axios from '../../axios';
 
 class DetallePedido extends Component {
 
@@ -8,8 +9,28 @@ class DetallePedido extends Component {
         super(props);
         this.state = this.props.location.state;
     }
+
+    deletePedido = ()=> {
+        axios.delete('/datos-cliente/' + this.state.idb + '.json' ). 
+            then(response => {
+                this.setState({pedidoBorrado : true});
+            });
+    }
+
+    cargarEstado = () => {
+        this.props.setCarrito(this.state.carrito);
+        this.setState({cargarEstado : true});
+    }
         
     render (){
+
+        if(this.state.pedidoBorrado){
+            return <Redirect to='/lista-pedidos' />
+        }
+
+        if(this.state.cargarEstado){
+            return <Redirect to='/' />
+        }
         
         var listaProductos = this.state.carrito.map((item, index)=>{
             return <ProductoRealizarPedido cantidad={item.count} nombre={item.nombre}
@@ -64,9 +85,9 @@ class DetallePedido extends Component {
                     {listaProductos}
                     <a  className="list-group-item list-group-item-action">
                         <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> 0</span> </h5>
+                            <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary">{this.state.cantidadTotal}</span> </h5>
                             
-                            <medium className="font-weight-bold">0€</medium>
+                            <medium className="font-weight-bold">{this.state.precioTotal}€</medium>
                             
                         </div>
                         
@@ -74,24 +95,19 @@ class DetallePedido extends Component {
                 </div>
 
                 <Link to={{
-                                pathname: '/',
+                                pathname: '/lista-pedidos',
                                 hash: '#submit',
-                                search: '?quick-submit=true',
-                                state: ""
+                                search: '?quick-submit=true'
                             }}>
-                  <button type="button" className="btn btn-primary mb-5 mt-5">Eliminar Pedido</button>
+                  <button type="button" className="btn btn-primary mb-5 mt-5 mr-2">Volver</button>
                 </Link>
-                <Link to={{
-                                pathname: '/',
-                                hash: '#submit',
-                                search: '?quick-submit=true',
-                                state: ""
-                            }}>
-                  <button type="button" className="btn btn-primary mb-5 mt-5">Cargar pedido</button>
-                </Link>
+                <button type="button" className="btn btn-primary mb-5 mt-5 mr-2" onClick={this.deletePedido}>Eliminar Pedido</button>
+                
+                
+                <button type="button" className="btn btn-primary mb-5 mt-5" onClick={this.cargarEstado}>Cargar pedido</button>
+                
 
             </div>
-
             
 
         );
