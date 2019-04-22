@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
   class PlusMinusInput extends Component {
+    
     constructor (props){
         super(props);
         if(props.cantidad){
-          console.log(props.cantidad)
           this.state.count = props.cantidad;
         }
     }
@@ -36,7 +36,7 @@ import React, { Component } from 'react';
     render (){
         return (
           <div className="PlusMinusInput row">
-            <button type="button" className="btn font-weight-bold" onClick={() => this.incrementCount()}><medium>+</medium></button>
+            <button type="button" className="btn font-weight-bold" onClick={() => this.incrementCount()}>+</button>
             <h2>{this.state.count}</h2>
             <button type="button" className="btn font-weight-bold" onClick={() => this.decrementCount()}>-</button>
           </div>

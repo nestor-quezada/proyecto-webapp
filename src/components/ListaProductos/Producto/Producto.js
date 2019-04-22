@@ -6,9 +6,6 @@ class Producto extends Component {
     
     constructor(props){
         super(props);
-        console.log(props.cantidad);
-       
-        
     }
 
     
@@ -18,7 +15,6 @@ class Producto extends Component {
         let miniaturas = [];
         let foundedProduct = this.props.cantidad.find(item => item.itemId === this.props.idb);
         
-        console.log(foundedProduct);
         const style = {
             
             padding: "0px !important",

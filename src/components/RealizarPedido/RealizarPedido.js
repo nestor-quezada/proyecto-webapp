@@ -8,7 +8,6 @@ class RealizarPedido extends Component {
 
     constructor(props){
         super(props);
-        console.log(this.props.carrito);
         if(!this.props.location.state){
             this.props.location.state = this.props.carrito;
         }
@@ -30,7 +29,6 @@ class RealizarPedido extends Component {
         {
             precioTotalUpdated += parseFloat(this.props.location.state[i].precio);
             unidadadesTotalUpdated += this.props.location.state[i].count;
-            console.log(this.props.location.state[i].precio)
         }
         
         
@@ -40,7 +38,6 @@ class RealizarPedido extends Component {
     }
 
     render (){
-
         
         var listaProductos = this.props.location.state.map((item, index)=>{
            return <ProductoRealizarPedido cantidad={item.count} nombre={item.nombre}

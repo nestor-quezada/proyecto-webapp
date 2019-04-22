@@ -17,6 +17,7 @@ class DatosCliente extends Component {
         codigoPostal:"",
         pedidos:"",        
         datosValidos:false
+        
     }
 
     handleFormSubmit = () => {
@@ -26,7 +27,9 @@ class DatosCliente extends Component {
             email:this.state.email,
             direccion:this.state.direccion,
             codigoPostal:this.state.codigoPostal,
-            pedidos:this.state.pedidos
+            carrito:this.props.carrito,
+            fecha: this.getFecha()
+            
         }
         axios.post('/datos-cliente.json',data). 
             then(response => {
@@ -36,13 +39,21 @@ class DatosCliente extends Component {
     }
 
     handleInputChange = (event) => {
-        console.log(event.target)
         this.setState({ [event.target.name]: event.target.value });
+    }
+
+    getFecha = () => {
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        return date+' '+time;
+
+
     }
         
     render (){
         if(this.state.datosValidos){
-            return <Redirect to='/' />
+            return <Redirect to='/pagina-agradecimiento' />
         }
         
       
