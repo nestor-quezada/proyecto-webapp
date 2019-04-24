@@ -34,7 +34,7 @@ class ListaPedidos extends Component {
     render (){
        
         const ListaPedidos = this.state.clientes.map ((pedido, index) => {
-            return <Pedido usuario = {pedido.nombre} fecha={pedido.fecha} num={index} datosPedido={pedido}/>
+            return <Pedido usuario = {pedido.nombre} fecha={pedido.fecha} key={index} num={index} datosPedido={pedido}/>
         });
         
 
@@ -43,7 +43,7 @@ class ListaPedidos extends Component {
             <div className="ListaPedidos">
                 
                 <h1>Lista de pedidos</h1>
-                <div class="list-group">
+                <div className="list-group">
                     {ListaPedidos}
                 </div>
             </div>

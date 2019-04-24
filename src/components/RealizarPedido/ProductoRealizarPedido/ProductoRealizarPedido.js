@@ -15,7 +15,7 @@ class ProductoRealizarPedido extends Component {
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{this.props.nombre}<span className="badge align-top badge-pill badge-info ml-2">{this.props.cantidad}</span></h5>
                     <img alt="" src={this.props.url_imagen} width="50px" height="50px"/>
-                    <medium>Total item:{this.props.precio * this.props.cantidad}€</medium>
+                    <h5>Total item:{this.props.precio * this.props.cantidad}€</h5>
                     <small>Precio item:{this.props.precio}€</small>
                     
                 </div>

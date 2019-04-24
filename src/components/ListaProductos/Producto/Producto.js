@@ -7,21 +7,19 @@ class Producto extends Component {
     constructor(props){
         super(props);
     }
-
-    
-        
+     
     render (){
         
         let miniaturas = [];
         let foundedProduct = this.props.cantidad.find(item => item.itemId === this.props.idb);
-        
+        console.log("entraaa" + Date.now())
         const style = {
             
             padding: "0px !important",
             margin: "0px",
-            borderRadius: "390px",
+            borderRadius: "0px",
             padding: "0.1rem 0.1rem",
-            boxShadow: "2px 1px 3px #888888",
+            boxShadow: "0px 0px 9px #888888",
             overflow: "hidden"
                 
         }
@@ -29,7 +27,7 @@ class Producto extends Component {
         if(foundedProduct){
             
             for (let i = 0; i < foundedProduct.count; i++) {
-                miniaturas.push(<li className="list-group-item" style={style}><img width="20" key={i} src={this.props.url_imagen} /></li>);
+                miniaturas.push(<li className="list-group-item" style={style} key={i}><img width="20"  src={this.props.url_imagen} /></li>);
             }
            
         }

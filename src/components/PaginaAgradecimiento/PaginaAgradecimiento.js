@@ -6,15 +6,17 @@ import React, { Component } from 'react';
         super(props);
     }
 
-   
-    
-  
-
     render (){
         return (
-          <div className="PaginaAgradecimiento">
-            <h1>Gracias por su compra ! :)</h1>
-            <a href="/"><button type="button" className="btn btn-primary font-weight-bold" >Seguir Comprando</button></a>
+          
+          <div class="PaginaAgradecimiento jumbotron">
+            <h1 class="display-4">Gracias por su compra  :)</h1>
+            <p class="lead">Aproveche las últimas ofertas disponibles en zapatillas de marca!</p>
+            <hr class="my-4"/>
+            <p>Si desea seguir comprando por favor haga click en el siguiente botón</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="/" role="button">Seguir Comprando</a>
+            </p>
           </div>
         );
       }

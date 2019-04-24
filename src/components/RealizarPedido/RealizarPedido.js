@@ -14,7 +14,7 @@ class RealizarPedido extends Component {
         
         var listaProductos = this.props.estado.carrito.map((item, index)=>{
            return <ProductoRealizarPedido cantidad={item.count} nombre={item.nombre}
-           precio={item.precio} url_imagen={item.url_imagen}/>
+           precio={item.precio} url_imagen={item.url_imagen} key={index}/>
         })
 
         return (
@@ -28,7 +28,7 @@ class RealizarPedido extends Component {
                         <div className="d-flex w-100 justify-content-between">
                             <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> {this.props.estado.totalCantidad}</span> </h5>
                             
-                            <medium className="font-weight-bold">{this.props.estado.totalPrecio}€</medium>
+                            <h5 className="font-weight-bold">{this.props.estado.totalPrecio}€</h5>
                             
                         </div>
                         
