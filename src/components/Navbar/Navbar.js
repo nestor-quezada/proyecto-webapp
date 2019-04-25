@@ -26,8 +26,10 @@ class Navbar extends Component {
                             }}>Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                            <a className="nav-link" href="/lista-pedidos"
-                            >Pedidos</a>
+                            <Link className="nav-link" to={{
+                                pathname: '/lista-pedidos'
+                   
+                            }}>Pedidos</Link>
                             </li>
                             </ul>
                     </div>

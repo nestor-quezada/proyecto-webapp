@@ -12,8 +12,6 @@ import { Route} from 'react-router-dom';
 
 class Shop extends Component {
 
-   
-
     state = {
         carrito: [],
         totalPrecio: 0,
