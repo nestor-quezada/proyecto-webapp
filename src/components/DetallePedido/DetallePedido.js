@@ -47,14 +47,19 @@ class DetallePedido extends Component {
                 <div>
                     <form>
                         <div className="form-row">
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-4">
                                 <label htmlFor="inputEmail">Email</label>
                                 <input type="email" name="email" value={this.state.email} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" readOnly/>
                             </div>
 
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-3">
                                 <label htmlFor="nombre">Nombre</label>
-                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" readOnly/>
+                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="nombre" readOnly/>
+                            </div>
+
+                            <div className="form-group col-md-5">
+                                <label htmlFor="apellidos">Apellidos</label>
+                                <input type="text" name="apellidos" value={this.state.apellidos} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="apellidos" readOnly/>
                             </div>
                             
                         </div>

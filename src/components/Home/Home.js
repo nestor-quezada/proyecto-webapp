@@ -119,6 +119,8 @@ class Home extends Component {
   }
   
   render() {
+    const alertMessage = "No hay ningún elemento en su carrito";
+
     if(this.state.isValidPedido){
       return <Redirect to='/realizar-pedido' />
     }
@@ -127,7 +129,7 @@ class Home extends Component {
           <div>
               <section className="Productos">
                   <h1 >Lista de productos</h1>
-                  <AlertMessage show={this.state.showAlert} />
+                  <AlertMessage show={this.state.showAlert} message={alertMessage}/>
                   <div className="list-unstyled">
                     <ListaProductos addProduct={this.addProduct} removeProduct={this.removeProduct} productos={this.state.productos} carrito={this.state.carrito} />
                   </div>

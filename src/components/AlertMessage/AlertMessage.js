@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class AlertMessage extends Component    {
 
-    componentDidUpdate(prevProps, prevState, snapshot){
-        if(prevProps.show !== this.props.show){
-            window.scrollTo(0, 0);
-        }
-    }
+  componentDidUpdate(prevProps, prevState, snapshot){
+      if(prevProps.show !== this.props.show){
+          window.scrollTo(0, 0);
+      }
+  }
 
   render (){
 
@@ -15,8 +15,8 @@ class AlertMessage extends Component    {
     }
         
     return (
-        <div class="alert alert-danger font-weight-bold alert-dismissible fade show " role="alert">
-            <bold>No hay ningún elemento en el carrito.</bold>
+        <div className="alert alert-danger font-weight-bold alert-dismissible fade show " role="alert">
+            <h6>{this.props.message}</h6>
         </div>
     );
   }

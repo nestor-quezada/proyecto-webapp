@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './DatosCliente.css';
 import { Link, Redirect } from 'react-router-dom';
 import axios from '../../axios';
+import AlertMessage from '../../components/AlertMessage/AlertMessage';
 
 class DatosCliente extends Component {
-
-    
 
     state = {
         nombre:"",
@@ -14,11 +13,13 @@ class DatosCliente extends Component {
         direccion:"",
         codigoPostal:"",
         pedidos:"",        
-        datosValidos:false
+        datosValidos:false,
+        showAlert:false
         
     }
 
     handleFormSubmit = () => {
+        
         const data = {
             nombre:this.state.nombre,
             apellidos:this.state.apellidos,
@@ -26,16 +27,40 @@ class DatosCliente extends Component {
             direccion:this.state.direccion,
             codigoPostal:this.state.codigoPostal,
             carrito:this.props.estado.carrito,
+            poblacion: this.state.poblacion,
             precioTotal:this.props.estado.totalPrecio,
             cantidadTotal:this.props.estado.totalCantidad,
             fecha: this.getFecha()
             
         }
+
+        const datosValidar = {
+            nombre:this.state.nombre,
+            apellidos:this.state.apellidos,
+            email:this.state.email,
+            direccion:this.state.direccion,
+            codigoPostal:this.state.codigoPostal,
+                    
+        }
+
+        const entries = Object.entries(datosValidar)
+
+        for (const [campo, valor] of entries) {
+            if(valor == null || String(valor).trim() == "" ){
+                this.setState({showAlert : true});
+               return;
+               
+            }
+            
+        }
+
         axios
         .post('/datos-cliente.json',data)
         .then(response => {
-                this.setState({datosValidos : true});
-            });
+            this.setState({datosValidos : true});
+        });
+
+        
 
     }
 
@@ -48,33 +73,37 @@ class DatosCliente extends Component {
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         return date+' '+time;
-
-
     }
         
     render (){
+        const alertMessage = "Debe rellenar todos los campos."; 
+
         if(this.state.datosValidos){
             return <Redirect to='/pagina-agradecimiento' />
         }
-        
       
         return (
 
             <div className="DatosCliente">
                 
                 <h1>Datos cliente</h1>
-
+                <AlertMessage show={this.state.showAlert} message={alertMessage}/>
                 <div>
                     <form>
                         <div className="form-row">
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-4">
                                 <label htmlFor="inputEmail">Email</label>
                                 <input type="email" name="email" value={this.state.email} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" placeholder="whatever@loquesea.com"/>
                             </div>
 
-                            <div className="form-group col-md-6">
+                            <div className="form-group col-md-3">
                                 <label htmlFor="nombre">Nombre</label>
-                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" placeholder="E.g. Fulgencio"/>
+                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="nombre" placeholder="E.g. Fulgencio"/>
+                            </div>
+
+                            <div className="form-group col-md-5">
+                                <label htmlFor="apellidos">Apellidos</label>
+                                <input type="text" name="apellidos" value={this.state.apellidos} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="apellidos" placeholder="E.g. Lopez Aguilar"/>
                             </div>
                             
                         </div>
