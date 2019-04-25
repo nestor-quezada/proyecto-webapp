@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './DatosCliente.css';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from '../../axios';
 
 class DatosCliente extends Component {
 
-    constructor(props){
-        super(props);
-    }
+    
 
     state = {
         nombre:"",
@@ -33,8 +31,9 @@ class DatosCliente extends Component {
             fecha: this.getFecha()
             
         }
-        axios.post('/datos-cliente.json',data). 
-            then(response => {
+        axios
+        .post('/datos-cliente.json',data)
+        .then(response => {
                 this.setState({datosValidos : true});
             });
 
@@ -69,35 +68,35 @@ class DatosCliente extends Component {
                     <form>
                         <div className="form-row">
                             <div className="form-group col-md-6">
-                                <label for="inputEmail">Email</label>
-                                <input type="email" name="email" value={this.state.email} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputEmail" placeholder="whatever@loquesea.com"/>
+                                <label htmlFor="inputEmail">Email</label>
+                                <input type="email" name="email" value={this.state.email} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" placeholder="whatever@loquesea.com"/>
                             </div>
 
                             <div className="form-group col-md-6">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputEmail" placeholder="E.g. Fulgencio"/>
+                                <label htmlFor="nombre">Nombre</label>
+                                <input type="text" name="nombre" value={this.state.nombre} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputEmail" placeholder="E.g. Fulgencio"/>
                             </div>
                             
                         </div>
                         <div className="form-group">
-                            <label for="inputAddress">Dirección</label>
-                            <input type="text" name="direccion" value={this.state.direccion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputAddress" placeholder="C/Gran vía 2 Avinguda de la Granvia " />
+                            <label htmlFor="inputAddress">Dirección</label>
+                            <input type="text" name="direccion" value={this.state.direccion} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputAddress" placeholder="C/Gran vía 2 Avinguda de la Granvia " />
                         </div>
                         <div className="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Población</label>
-                                <input type="text" name="poblacion" value={this.state.poblacion} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="inputCity" placeholder="L'Hospitalet de Llobregat, Barcelona"/>
+                            <div className="form-group col-md-6">
+                                <label htmlFor="inputCity">Población</label>
+                                <input type="text" name="poblacion" value={this.state.poblacion} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="inputCity" placeholder="L'Hospitalet de Llobregat, Barcelona"/>
                             </div>
                             
                             <div className="form-group col-md-2">
-                                <label for="codigoPostal">Códido postal</label>
-                                <input type="text" name="codigoPostal" value={this.state.codigoPostal} onChange={(event)=>this.handleInputChange(event)} class="form-control" id="codigoPostal"/>
+                                <label htmlFor="codigoPostal">Códido postal</label>
+                                <input type="text" name="codigoPostal" value={this.state.codigoPostal} onChange={(event)=>this.handleInputChange(event)} className="form-control" id="codigoPostal"/>
                             </div>
                         </div>
                         <div className="form-group">
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="gridCheck" />
-                                <label className="form-check-label" for="gridCheck">
+                                <label className="form-check-label" htmlFor="gridCheck">
                                     Consiento que mis datos queden registrados para futuras compras
                                 </label>
                             </div>

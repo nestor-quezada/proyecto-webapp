@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import './RealizarPedido.css';
 import ProductoRealizarPedido from './ProductoRealizarPedido/ProductoRealizarPedido';
-import DatosCliente from '../DatosCliente/DatosCliente';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class RealizarPedido extends Component {
 
-    constructor(props){
-        super(props);
-    }
   
     render (){
         
@@ -24,7 +20,7 @@ class RealizarPedido extends Component {
                 <h1>Confirmar pedido</h1>
                 <div className="list-group">
                     {listaProductos}
-                    <a  className="list-group-item list-group-item-action">
+                    <span className="list-group-item list-group-item-action">
                         <div className="d-flex w-100 justify-content-between">
                             <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary"> {this.props.estado.totalCantidad}</span> </h5>
                             
@@ -32,7 +28,7 @@ class RealizarPedido extends Component {
                             
                         </div>
                         
-                    </a>
+                    </span>
                 </div>
                 
                 <div className="container">

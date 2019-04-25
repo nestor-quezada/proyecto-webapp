@@ -5,17 +5,15 @@ import axios from '../../axios';
 
 class ListaPedidos extends Component {
 
-    constructor(props){
-        super(props);
-       
-    }
+  
     state = {
         clientes : []
     }
 
     componentDidMount(){
-        axios.get('/datos-cliente.json'). 
-            then(response => {
+        axios
+        .get('/datos-cliente.json')
+        .then(response => {
                 // Split de los datos recibidos y actualizacion del estado
                 let clientes = [];
             

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
 import ListaProductos from '../../components/ListaProductos/ListaProductos';
-import { Route, Link } from 'react-router-dom';
+import AlertMessage from '../../components/AlertMessage/AlertMessage';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -11,6 +12,8 @@ class Home extends Component {
       this.state.carrito = props.carrito;
     }
     this.state.total=this.getTotal();
+    this.state.isValidPedido = false;
+    this.state.showAlert = false;
   }
 
   state = {
@@ -19,8 +22,9 @@ class Home extends Component {
 
   // Aqui se deben realizar las peticiones AJAX
   componentDidMount(){
-      axios.get('/productos.json'). 
-          then(response => {
+      axios
+      .get('/productos.json')
+      .then(response => {
               // Split de los datos recibidos y actualizacion del estado
               let productos = [];
             
@@ -79,8 +83,8 @@ class Home extends Component {
       // Si el producto ya existe solo se actuliza su cantidad
       let product = foundedProduct;
       product.count = count;
-      //console.log(count)
-      if(product.count == 0){
+      
+      if(product.count === 0){
         updatedCarrito.splice(foundedProduct, 1); 
       }
 
@@ -105,25 +109,32 @@ class Home extends Component {
     return total;
   }
 
+  handleRealizarPedido = () => {
+    if(this.state.carrito.length > 0){
+      this.setState({isValidPedido : true, showAlert:false});
+    }else{
+      this.setState({isValidPedido : false, showAlert:true});
+    }
+
+  }
+  
   render() {
+    if(this.state.isValidPedido){
+      return <Redirect to='/realizar-pedido' />
+    }
+
       return (
           <div>
               <section className="Productos">
                   <h1 >Lista de productos</h1>
+                  <AlertMessage show={this.state.showAlert} />
                   <div className="list-unstyled">
                     <ListaProductos addProduct={this.addProduct} removeProduct={this.removeProduct} productos={this.state.productos} carrito={this.state.carrito} />
                   </div>
                   <h2>Total: {this.state.total}€</h2>
               </section>
               <div className="container">
-                <Link to={{
-                                pathname: '/realizar-pedido',
-                                hash: '#submit',
-                                search: '?quick-submit=true',
-                                state: this.state.carrito
-                            }}>
-                  <button type="button" className="btn btn-primary mb-5 mt-5">Realizar pedido</button>
-                </Link>
+                <button type="button" className="btn btn-primary mb-5 mt-5" onClick={this.handleRealizarPedido}>Realizar pedido</button>
               </div>
           </div>
 

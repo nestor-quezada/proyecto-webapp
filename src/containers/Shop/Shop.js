@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import axios from '../../axios';
 import Home from '../../components/Home/Home';
 import RealizarPedido from '../../components/RealizarPedido/RealizarPedido';
 import ListaPedidos from '../../components/ListaPedidos/ListaPedidos';
@@ -9,14 +7,12 @@ import DatosCliente from '../../components/DatosCliente/DatosCliente';
 import PaginaAgradecimiento from '../../components/PaginaAgradecimiento/PaginaAgradecimiento';
 import Breadcumbs from '../../components/Breadcumbs/Breadcumbs';
 import Navbar from '../../components/Navbar/Navbar';
-import { Route, Link } from 'react-router-dom';
+import { Route} from 'react-router-dom';
 
 
 class Shop extends Component {
 
-    constructor(props){
-        super(props);
-    }
+   
 
     state = {
         carrito: [],

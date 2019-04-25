@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ProductoRealizarPedido from '../RealizarPedido/ProductoRealizarPedido/ProductoRealizarPedido';
 import axios from '../../axios';
 
@@ -11,8 +11,9 @@ class DetallePedido extends Component {
     }
 
     deletePedido = ()=> {
-        axios.delete('/datos-cliente/' + this.state.idb + '.json' ). 
-            then(response => {
+        axios
+        .delete('/datos-cliente/' + this.state.idb + '.json' )
+        .then(response => {
                 this.setState({pedidoBorrado : true});
             });
     }
@@ -83,7 +84,7 @@ class DetallePedido extends Component {
                 <h1>Lista de productos</h1>
                 <div className="list-group">
                     {listaProductos}
-                    <a  className="list-group-item list-group-item-action">
+                    <span className="list-group-item list-group-item-action">
                         <div className="d-flex w-100 justify-content-between">
                             <h5 className="mb-1">Total <span className="badge align-top badge-pill badge-primary">{this.state.cantidadTotal}</span> </h5>
                             
@@ -91,7 +92,7 @@ class DetallePedido extends Component {
                             
                         </div>
                         
-                    </a>
+                    </span>
                 </div>
 
                 <Link to={{

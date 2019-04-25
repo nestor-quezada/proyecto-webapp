@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import './Breadcumbs.css';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Breadcumbs extends Component {
-
-    constructor(props){
-        super(props);
-        
-    }
         
     render (){
         const pathname = this.props.location.pathname;
-        if(pathname.localeCompare("/") == 0){
+        if(pathname.localeCompare("/") === 0){
 
             return (
                 <Link to="/">
@@ -23,7 +18,7 @@ class Breadcumbs extends Component {
                 </Link>)
 
 
-        }else if (pathname.localeCompare("/realizar-pedido") == 0){
+        }else if (pathname.localeCompare("/realizar-pedido") === 0){
 
             return (
                 <nav aria-label="breadcrumb">
@@ -33,7 +28,7 @@ class Breadcumbs extends Component {
                     </ol>
                 </nav>)
 
-        }else if (pathname.localeCompare("/datos-cliente") == 0){
+        }else if (pathname.localeCompare("/datos-cliente") === 0){
 
             return (
                 <nav aria-label="breadcrumb">

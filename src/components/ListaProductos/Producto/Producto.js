@@ -3,19 +3,15 @@ import './Producto.css';
 import  PlusMinusInput from '../../PlusMinusInput/PlusMinusInput'
 
 class Producto extends Component {
-    
-    constructor(props){
-        super(props);
-    }
-     
+         
     render (){
         
         let miniaturas = [];
         let foundedProduct = this.props.cantidad.find(item => item.itemId === this.props.idb);
-        console.log("entraaa" + Date.now())
+        
         const style = {
             
-            padding: "0px !important",
+            
             margin: "0px",
             borderRadius: "0px",
             padding: "0.1rem 0.1rem",
@@ -27,7 +23,7 @@ class Producto extends Component {
         if(foundedProduct){
             
             for (let i = 0; i < foundedProduct.count; i++) {
-                miniaturas.push(<li className="list-group-item" style={style} key={i}><img width="20"  src={this.props.url_imagen} /></li>);
+                miniaturas.push(<li className="list-group-item" style={style} key={i}><img width="20"  src={this.props.url_imagen} alt="miniatura"/></li>);
             }
            
         }
@@ -39,7 +35,7 @@ class Producto extends Component {
             <li className="media">
                 
                 
-                <img className="mr-3" src={this.props.url_imagen} width="150px" alt="Generic placeholder image"></img>
+                <img className="mr-3" src={this.props.url_imagen} width="150px" alt="Generic placeholder"></img>
                 <div className="col-sm">
                     
                     <h5 className="mt-0 mb-1 ">{this.props.nombre}</h5>

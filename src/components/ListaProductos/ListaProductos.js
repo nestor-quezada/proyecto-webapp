@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Producto from './Producto/Producto';
 
 const ListaProductos = ( props ) => props.productos.map ((producto, index) => {
